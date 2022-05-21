@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -8,13 +8,10 @@ import SocialLogIn from './SocialLogIn';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const [updateProfile, updating, error2] = useUpdateProfile(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
 
