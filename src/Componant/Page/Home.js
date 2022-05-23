@@ -1,6 +1,4 @@
 import React from 'react';
-import Footer from '../SharePage/Footer';
-import Header from '../SharePage/Header';
 
 const Home = () => {
     return (

@@ -26,8 +26,9 @@ const Header = () => {
                             {
                                 user ?
                                     <>
+                                        <Nav.Link as={Link} to="/DashBoard">DashBoard</Nav.Link>
                                         <h6 className='text-success mt-2'>{user.displayName}</h6>
-                                        <button className='btn text-muted' onClick={handleSignOut} >Logout</button>
+                                        <button style={{margin: "-5px"}}  className='btn text-muted' onClick={handleSignOut} >Logout</button>
                                     </>
                                     :
                                     <Nav.Link as={Link} to="/Login">Login</Nav.Link>

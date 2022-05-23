@@ -16,7 +16,10 @@ const SocialLogIn = () => {
     }
     return (
         <div className='d-flex justify-content-center my-5'>
-            <button  onClick={() => google()} className='btn btn-danger'><img style={{width: '30px'}} className="" src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="" /> Sign in with Google</button>
+            <button onClick={() => google()} className='btn btn-danger d-flex align-items-center'>
+                <img style={{ width: '20px' }} className="mr-2" src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="" />
+                <p className='m-0'>Sign in with Google</p>
+            </button>
         </div>
     );
 };
