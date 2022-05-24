@@ -1,0 +1,38 @@
+[
+    {
+      "_id": "628ca0e5d8b310a95d65900e",
+      "name": "Blanca Oneill",
+      "productName": "BITREX",
+      "picture": "https://i.ibb.co/KLrwjmB/s1.jpg",
+      "price": 541,
+      "availableQuantity": 640259,
+      "minimumOrder": 100,
+      "description": "esse qui exercitation consequat sunt nulla aliquip cillum dolor ullamco",
+      "company": "VERAQ",
+      "email": "blancaoneill@veraq.com"
+    },
+    {
+      "_id": "628ca0e516b039f6aa2390ac",
+      "name": "Ronda Barber",
+      "productName": "TWIGGERY",
+      "picture": "https://i.ibb.co/LCFCMF8/s2.jpg",
+      "price": 445,
+      "availableQuantity": 394954,
+      "minimumOrder": 100,
+      "description": "sit exercitation eu pariatur elit aute qui voluptate elit in",
+      "company": "COREPAN",
+      "email": "rondabarber@corepan.com"
+    },
+    {
+      "_id": "628ca0e54de6de6f376cb604",
+      "name": "Browning Flores",
+      "productName": "ZENOLUX",
+      "picture": "https://i.ibb.co/KLrwjmB/s1.jpg",
+      "price": 58,
+      "availableQuantity": 721448,
+      "minimumOrder": 100,
+      "description": "do culpa sit adipisicing esse cillum pariatur magna id adipisicing",
+      "company": "TYPHONICA",
+      "email": "browningflores@typhonica.com"
+    }
+  ]

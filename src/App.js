@@ -19,6 +19,7 @@ import ManageAllOrders from './Componant/Page/DashBoard/ManageAllOrders';
 import AddAProduct from './Componant/Page/DashBoard/AddAProduct';
 import MakeAdmin from './Componant/Page/DashBoard/MakeAdmin';
 import ManageProducts from './Componant/Page/DashBoard/ManageProducts';
+import Purchase from './Componant/Page/Purchase';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/Home" element={<Home></Home>}></Route>
         <Route path='/Tools' element={<Tools></Tools>}></Route>
+        <Route path='/Tools/:id' element={<Purchase></Purchase>}></Route>
         <Route path='/Blog' element={<Blogs></Blogs>}></Route>
         <Route path='/Portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/DashBoard' element={
