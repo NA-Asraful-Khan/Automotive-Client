@@ -20,15 +20,18 @@ const Purchase = () => {
     const availableQuantity = parseInt(item.availableQuantity);
     const minimumOrder = parseInt(item.minimumOrder);
     const price = parseInt(item.price);
-    const name = user.displayName;
-    const email = user.email;
+    const name = user?.displayName;
+    const email = user?.email;
+    const disable = true;
+
+    const changeData=(e)=>{
+        const change = e.target.change.value
+        console.log(change)
+    }
 
     const handlePurchase = (e) => {
-        
         e.preventDefault();
         const quantity = e.target.quantity.value;
-
-
         const order = {name, email, productName, company, availableQuantity, minimumOrder, price,quantity}
 
         if (quantity < 0) {
@@ -76,7 +79,7 @@ const Purchase = () => {
                             <label><h5>Quantity</h5></label>
                             <Form.Control name="quantity" type="number" placeholder="Enter Your Quantity" />
                         </Form.Group>
-                        <button className='btn btn-primary' variant="primary" type="submit">
+                        <button className={`btn btn-primary ${disable? "disabled":""}`} variant="primary" type="submit">
                             Add to Order
                         </button>
                     </Form>
