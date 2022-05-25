@@ -16,11 +16,11 @@ const Tool = ({ item }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-2xl text-danger">{productName}</h2>
                     <div className='text-start pl-6'>
-                        <h5>Company: {company}</h5>
-                        <h5>Price: {price}</h5>
-                        <h5>Available Quantity: {availableQuantity}</h5>
-                        <h5>Minimum Order: {minimumOrder}</h5>
-                        <p>Description: {description}</p>
+                        <h5><span className='text-muted'>Company:</span> {company}</h5>
+                        <h5><span className='text-muted'>Price:</span> ${price}</h5>
+                        <h5><span className='text-muted'>Available Quantity:</span> {availableQuantity}</h5>
+                        <h5><span className='text-muted'>Minimum Order:</span> {minimumOrder}</h5>
+                        <p><span className='text-muted'>Description:</span> {description}</p>
                     </div>
                     <div className="card-actions">
                         <button onClick={() => navigatetoDetail(_id)} className='btn btn-primary m-2 d-block'>Purchase</button>

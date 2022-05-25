@@ -24,11 +24,12 @@ const Purchase = () => {
     const email = user.email;
 
     const handlePurchase = (e) => {
+        
         e.preventDefault();
         const quantity = e.target.quantity.value;
 
 
-        const order = {name, email, productName, company, availableQuantity, minimumOrder, price }
+        const order = {name, email, productName, company, availableQuantity, minimumOrder, price,quantity}
 
         if (quantity < 0) {
             return toast.error("Please Input Positive Number")
@@ -56,7 +57,7 @@ const Purchase = () => {
 
     return (
         <div>
-            <h2>This is Purchase {id}</h2>
+            <h2>Purchase Your Order</h2>
             <div className="card w-96 bg-base-100 shadow-xl m-auto">
                 <figure><img src={item.picture} alt="Shoes" /></figure>
                 <div className="card-body">
@@ -64,7 +65,7 @@ const Purchase = () => {
                     <div className="divider m-1"></div>
                     <h2 className="card-title"><span className='text-muted'>Company:</span> {company}</h2>
                     <div className="divider m-1"></div>
-                    <h2 className="card-title"><span className='text-muted'>Price:</span> {price}</h2>
+                    <h2 className="card-title"><span className='text-muted'>Price:</span> ${price}</h2>
                     <div className="divider m-1"></div>
                     <h2 className="card-title"><span className='text-muted'>Available Quantity:</span> {availableQuantity}</h2>
                     <div className="divider m-1"></div>

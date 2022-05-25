@@ -5,7 +5,6 @@ import ManageProduct from './ManageProduct';
 const ManageProducts = () => {
     const [items, setItems] = useData();
     const handleDelet = (id) => {
-        const modal = {}
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
             const url = `http://localhost:5000/tool/${id}`;
