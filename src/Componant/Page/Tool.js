@@ -23,7 +23,7 @@ const Tool = ({ item }) => {
                         <p>Description: {description}</p>
                     </div>
                     <div className="card-actions">
-                        <button onClick={() => navigatetoDetail(_id)} className='btn btn-primary m-2 d-block'>Show Details</button>
+                        <button onClick={() => navigatetoDetail(_id)} className='btn btn-primary m-2 d-block'>Purchase</button>
                     </div>
                 </div>
             </div>

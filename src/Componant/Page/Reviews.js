@@ -15,9 +15,9 @@ import "swiper/css/autoplay";
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`reviews.json`)
+        fetch(`http://localhost:5000/review`)
             .then(res => res.json())
-            .then(data => setReviews(data));
+            .then(data => setReviews(data.reverse()));
     }, [])
     return (
         <div className='bg-slate-900 p-8'>
@@ -34,8 +34,8 @@ const Reviews = () => {
                     reviews.map(review => <SwiperSlide
                         key={review._id}
                     >
-                        <div class="card w-full bg-transparent text-white m-auto">
-                            <div class="card-body items-center text-center my-8">
+                        <div className="card w-full bg-transparent text-white m-auto">
+                            <div className="card-body items-center text-center my-8">
                                 <h3>{review.name}</h3>
                                 <h4>
                                     <ImQuotesLeft className='inline text-5xl mx-4' />
@@ -47,9 +47,6 @@ const Reviews = () => {
                         </div>
                     </SwiperSlide>)
                 }
-                {/* <SwiperSlide><img className='m-auto w-full' src="https://i.ibb.co/KLrwjmB/s1.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img className='m-auto w-full' src="https://i.ibb.co/KLrwjmB/s1.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img className='m-auto w-full' src="https://i.ibb.co/KLrwjmB/s1.jpg" alt="" /></SwiperSlide> */}
             </Swiper>
         </div>
     );

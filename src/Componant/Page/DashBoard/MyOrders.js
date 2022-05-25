@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyOrders = () => {
     return (
-        <div>
-            <h2>This is my orders</h2>
+        <div className='items-center'>
+            <h2>My Orders</h2>
         </div>
     );
 };

@@ -8,37 +8,37 @@
     {
       "_id": "628cb6f1e8d751371ad36506",
       "review": "proident aliqua veniam dolor dolore anim exercitation ex et commodo",
-      "ratings": 5,
+      "ratings": 2,
       "name":"Shikhor"
     },
     {
       "_id": "628cb6f1c76feb221d1d5d23",
       "review": "Lorem enim exercitation aliqua quis aliquip incididunt exercitation fugiat tempor",
-      "ratings": 2,
+      "ratings": 3,
       "name":"Shikhor"
     },
     {
       "_id": "628cb6f13edbf1557a13612e",
       "review": "ut in sint sint dolore incididunt fugiat quis adipisicing laborum",
-      "ratings": 3,
+      "ratings": 4,
       "name":"Shikhor"
     },
     {
       "_id": "628cb6f1b2c5d9e86ea4dc14",
       "review": "mollit reprehenderit amet Lorem sit et mollit adipisicing labore incididunt",
-      "ratings": 4,
+      "ratings": 5,
       "name":"Shikhor"
     },
     {
       "_id": "628cb6f1ab16cb56350c25fa",
       "review": "aliqua est sit reprehenderit veniam eu mollit pariatur voluptate eiusmod",
-      "ratings": 5,
+      "ratings": 6,
       "name":"Shikhor"
     },
     {
       "_id": "628cb6f1b792c40acbccea7f",
       "review": "aliqua magna excepteur nisi irure est reprehenderit sint in in",
-      "ratings": 5,
+      "ratings": 7,
       "name":"Shikhor"
     }
   ]
