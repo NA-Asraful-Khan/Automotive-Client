@@ -5,7 +5,7 @@ import ManageProduct from './ManageProduct';
 const ManageProducts = () => {
     const [items, setItems] = useData();
     const handleDelet = (id) => {
-        const modal ={}
+        const modal = {}
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
             const url = `http://localhost:5000/tool/${id}`;
@@ -25,16 +25,16 @@ const ManageProducts = () => {
     return (
         <div>
             <h2>Manage Procducts</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th>Favorite Color</th>
-                            <th>Favorite Color</th>
+                            <th>#</th>
+                            <th>Product Name</th>
+                            <th>Company Name</th>
+                            <th>Price</th>
+                            <th>Available Quantity</th>
+                            <th>Minimum Order</th>
                             <th>Action</th>
                         </tr>
                     </thead>

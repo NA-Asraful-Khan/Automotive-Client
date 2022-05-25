@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import auth from '../../../firebase.init';
 
 const AddAProduct = () => {
@@ -28,6 +29,7 @@ const AddAProduct = () => {
         })
         .then(res => res.json())
         .then(data =>{
+            toast.success("Item Added Succesfully!")
             e.target.reset();
         }) 
     }
