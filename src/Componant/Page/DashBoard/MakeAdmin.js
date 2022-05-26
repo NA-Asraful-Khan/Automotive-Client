@@ -9,16 +9,6 @@ const MakeAdmin = () => {
         return <Loading></Loading>
     }
 
-    // const [person, setPerson] = useState([])
-    // useEffect(()=>{
-    //     fetch(`http://localhost:5000/user`)
-    //     .then(res=>res.json())
-    //     .then(data=>setPerson(data))
-    // },[])
-
-    const handleUserDelete =(id)=>{
-
-    }
     return (
         <div>
             <h2>User List {person.length}</h2>
@@ -31,7 +21,6 @@ const MakeAdmin = () => {
                             <th>Email</th>
                             <th>Role</th>
                             <th>Admin</th>
-                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +29,6 @@ const MakeAdmin = () => {
                                 key={item._id}
                                 item={item}
                                 index={index}
-                                handleUserDelete={handleUserDelete}
                                 refetch={refetch}
                             ></Admin>)
                         }

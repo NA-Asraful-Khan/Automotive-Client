@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import MyOrder from './MyOrder';
 
 const MyOrders = () => {
@@ -6,8 +8,9 @@ const MyOrders = () => {
     const [modal, setModal] = useState(false);
     const [agree, setAgree] = useState(false);
     const [itemID, setItemID] = useState();
+    const [user] = useAuthState(auth);
     useEffect(() => {
-        fetch(`http://localhost:5000/order`)
+        fetch(`http://localhost:5000/order/admin?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setmyOrder(data));
     }, [])
@@ -37,10 +40,6 @@ const MyOrders = () => {
 
     // Modal 
     
-    const agreeModal = () => {
-        setAgree(true);
-        setModal(false);
-    }
     const closeModal = () => {
         setModal(false);
     }
@@ -69,7 +68,6 @@ const MyOrders = () => {
                                 item={item}
                                 index={index}
                                 openModal={openModal}
-                                setItemID={setItemID}
                             ></MyOrder>)
                         }
                     </tbody>

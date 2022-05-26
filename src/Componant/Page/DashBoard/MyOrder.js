@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyOrder = ({ item, index,openModal,setItemID }) => {
+const MyOrder = ({ item, index,openModal }) => {
     const { _id,productName, company, price,quantity } = item
     return (
         <tr>

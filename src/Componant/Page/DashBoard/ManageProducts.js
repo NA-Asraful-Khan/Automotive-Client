@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useData from '../../../Hooks/useData';
 import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
     const [items, setItems] = useData();
+    const [modal, setModal] = useState(false);
+    const [agree, setAgree] = useState(false);
+    const [itemID, setItemID] = useState();
+
+
+    const openModal =(id)=>{
+        setModal(true);
+        setItemID(id);
+        console.log(itemID)
+    }
+
     const handleDelet = (id) => {
-        const proceed = window.confirm("Are you sure you want to delete?");
-        if (proceed) {
+        setAgree(true);
+        setModal(false);
+        if (agree===true) {
             const url = `http://localhost:5000/tool/${id}`;
             fetch(url, {
                 method: "DELETE"
@@ -20,6 +32,9 @@ const ManageProducts = () => {
                 })
         }
 
+    }
+    const closeModal = () => {
+        setModal(false);
     }
     return (
         <div>
@@ -43,11 +58,22 @@ const ManageProducts = () => {
                                 key={item._id}
                                 item={item}
                                 index={index}
-                                handleDelet={handleDelet}
+                                openModal={openModal}
                             ></ManageProduct>)
                         }
                     </tbody>
                 </table>
+            </div>
+            {/* modal  */}
+            <div>
+                <div className={`my-modal-cont fixed top-0 left-0 bg-slate-300/50 w-screen h-screen rounded p-8 flex justify-center items-center ${!modal ? "hidden" : ""}`} id='my-modal-cont'>
+                    <div className='my-modal-body text-danger bg-white rounded p-8'>
+                        <h1 className='text-warning'>Warning!</h1>
+                        <p>Are You Sure,  You Want to Cancel?</p>
+                        <button onClick={()=>handleDelet(itemID)} className='btn-danger p-2 rounded' id='close-modal'>Yes, I Agree.</button>
+                        <button onClick={closeModal} className='btn-danger mx-2 p-2 rounded' id='close-modal'>Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     );
