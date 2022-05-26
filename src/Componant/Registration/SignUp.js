@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import toast from 'react-hot-toast';
 import SocialLogIn from './SocialLogIn';
+import Loading from '../SharePage/Loading';
+import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const [updateProfile] = useUpdateProfile(auth);
+    const [updateProfile,updating] = useUpdateProfile(auth);
+    const [displayName, setDisplayName] = useState('');
 
     const [
-        createUserWithEmailAndPassword,
+        createUserWithEmailAndPassword,user,
+        loading
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [token] = useToken(user);
 
 
     const handleSignup = async (event) => {
         event.preventDefault();
-        const displayName = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
@@ -26,17 +31,23 @@ const SignUp = () => {
         }
 
         await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName })
+        await updateProfile(displayName)
         toast.success('Registration Succesfull')
+    }
+
+    if(token){
         navigate('/');
     }
+    if (updating) {
+        return <Loading></Loading>
+      }
     return (
         <div className='w-50 mx-auto mt-5 py-5 d-block text-start'>
             <h2 className='text-center'>Sign Up</h2>
             <Form onSubmit={handleSignup}>
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control name="name" type="text" placeholder="Your Name" required />
+                    <Form.Control onChange={(e) => setDisplayName(e.target.value)} type="text" placeholder="Your Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

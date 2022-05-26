@@ -4,6 +4,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import SocialLogIn from './SocialLogIn';
 
 const Login = () => {
@@ -23,6 +24,8 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    const [token] = useToken(user);
+
     const handleSignin = event => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -32,11 +35,8 @@ const Login = () => {
 
     }
 
-    if (user) {
+    if (token) {
         navigate(from);
-    }
-    if (error) {
-        toast.error(error?.message);
     }
     return (
         <div className='w-50 mx-auto mt-5 py-5 d-block text-start'>

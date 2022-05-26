@@ -4,12 +4,16 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from './Loading';
 
 const Header = () => {
-    const [user] = useAuthState(auth);
+    const [user , loading] = useAuthState(auth);
+    
     const handleSignOut = () => {
         signOut(auth);
+        localStorage.removeItem('AccessToken')
     }
+    
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

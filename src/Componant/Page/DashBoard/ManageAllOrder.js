@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageAllOrder = ({item,index,handleOrderDelet}) => {
+const ManageAllOrder = ({item,index,openModal}) => {
     const { _id,productName, company, price,quantity,name } = item
     return (
         <tr>
@@ -11,8 +11,7 @@ const ManageAllOrder = ({item,index,handleOrderDelet}) => {
             <td>${price}</td>
             <td>{quantity}</td>
             <td>${quantity*price}</td>
-            <td><button className='btn btn-danger d-block m-2'>Make Payment</button></td>
-            <td><button onClick={() => handleOrderDelet(_id)} className='btn btn-danger d-block m-2'>Delete Item</button></td>
+            <td><button onClick={() => openModal(_id)} className='btn btn-danger d-block m-2'>Delete Item</button></td>
         </tr>
     );
 };

@@ -24,22 +24,22 @@ const Purchase = () => {
     const email = user?.email;
     const [disable, setDisable] = useState("");
     const [error, setError] = useState("");
-    
 
-    const quantityHandle=(e)=>{
+
+    const quantityHandle = (e) => {
         const change = e.target.value
-        if(change<0){
+        if (change < 0) {
             setError(`Please Input Positive Number`)
-        }else if(change===""){
+        } else if (change === "") {
             setError(``)
             setDisable(change)
-        }else if(change<minimumOrder){
+        } else if (change < minimumOrder) {
             setDisable("")
             setError(`Minimum Order is ${minimumOrder}`)
-        }else if(change>availableQuantity){
+        } else if (change > availableQuantity) {
             setDisable("")
             setError(`Sorry! Not Enough Stock.`)
-        }else{
+        } else {
             setError(``)
             setDisable(change)
         }
@@ -48,7 +48,9 @@ const Purchase = () => {
     const handlePurchase = (e) => {
         e.preventDefault();
         const quantity = e.target.quantity.value;
-        const order = {name, email, productName, company, availableQuantity, minimumOrder, price,quantity}
+        const mobile = e.target.mobile.value;
+        const address = e.target.address.value;
+        const order = { name, email, productName, company, availableQuantity, minimumOrder, price, quantity,mobile,address}
 
         fetch('http://localhost:5000/order', {
             method: 'POST',
@@ -81,12 +83,21 @@ const Purchase = () => {
                     <h2 className="card-title"><span className='text-muted'>Minimum Order:</span> {minimumOrder}</h2>
                     <div className="divider m-1"></div>
                     <Form onSubmit={handlePurchase}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Address</Form.Label>
+                            <Form.Control name='address' type="text" placeholder="Enter Your Adress" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Mobile</Form.Label>
+                            <Form.Control name='mobile' type="number" placeholder="Give Us Your Mobile Number" />
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicQuantity">
                             <label><h5>Quantity</h5></label>
                             <Form.Control onChange={quantityHandle} name="quantity" type="number" placeholder="Enter Your Quantity" />
                             <p className='text-danger text-start py-2'>{error}</p>
                         </Form.Group>
-                        <button className={`btn btn-primary ${!disable? "disabled":""}`} variant="primary" type="submit">
+                        <button className={`btn btn-primary ${!disable ? "disabled" : ""}`} variant="primary" type="submit">
                             Add to Order
                         </button>
                     </Form>

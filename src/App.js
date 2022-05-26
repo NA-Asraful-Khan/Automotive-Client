@@ -29,7 +29,11 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/Home" element={<Home></Home>}></Route>
         <Route path='/Tools' element={<Tools></Tools>}></Route>
-        <Route path='/Tools/:id' element={<Purchase></Purchase>}></Route>
+        <Route path='/Tools/:id' element={
+          <RequiredAuth>
+            <Purchase></Purchase>
+          </RequiredAuth>
+        }></Route>
         <Route path='/Blog' element={<Blogs></Blogs>}></Route>
         <Route path='/Portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/DashBoard' element={
