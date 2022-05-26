@@ -13,8 +13,8 @@ const AddReview = () => {
         } else {
             toast.success("Your Review Added Succesfully!")
             
-            const email = user.email;
-            const name = user.displayName;
+            const email = user?.email;
+            const name = user?.displayName;
             const review = data.review;
             const ratings = data.ratings;
             const reviews = { email, name, review, ratings }

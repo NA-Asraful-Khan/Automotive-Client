@@ -22,11 +22,27 @@ const Purchase = () => {
     const price = parseInt(item.price);
     const name = user?.displayName;
     const email = user?.email;
-    const disable = true;
+    const [disable, setDisable] = useState("");
+    const [error, setError] = useState("");
+    
 
-    const changeData=(e)=>{
-        const change = e.target.change.value
-        console.log(change)
+    const quantityHandle=(e)=>{
+        const change = e.target.value
+        if(change<0){
+            setError(`Please Input Positive Number`)
+        }else if(change===""){
+            setError(``)
+            setDisable(change)
+        }else if(change<minimumOrder){
+            setDisable("")
+            setError(`Minimum Order is ${minimumOrder}`)
+        }else if(change>availableQuantity){
+            setDisable("")
+            setError(`Sorry! Not Enough Stock.`)
+        }else{
+            setError(``)
+            setDisable(change)
+        }
     }
 
     const handlePurchase = (e) => {
@@ -34,13 +50,6 @@ const Purchase = () => {
         const quantity = e.target.quantity.value;
         const order = {name, email, productName, company, availableQuantity, minimumOrder, price,quantity}
 
-        if (quantity < 0) {
-            return toast.error("Please Input Positive Number")
-        } else if (quantity > availableQuantity) {
-            return toast.error("Sorry! Not Enough Stock.")
-        } else if (quantity > 0 && quantity < minimumOrder) {
-            return toast.error(`You have to order minimum ${minimumOrder} pieces.`)
-        }
         fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
@@ -53,9 +62,6 @@ const Purchase = () => {
                 toast.success("Your Order Has Been Succesfully Place")
                 e.target.reset();
             })
-
-        console.log(quantity)
-
     }
 
     return (
@@ -77,9 +83,10 @@ const Purchase = () => {
                     <Form onSubmit={handlePurchase}>
                         <Form.Group className="mb-3" controlId="formBasicQuantity">
                             <label><h5>Quantity</h5></label>
-                            <Form.Control name="quantity" type="number" placeholder="Enter Your Quantity" />
+                            <Form.Control onChange={quantityHandle} name="quantity" type="number" placeholder="Enter Your Quantity" />
+                            <p className='text-danger text-start py-2'>{error}</p>
                         </Form.Group>
-                        <button className={`btn btn-primary ${disable? "disabled":""}`} variant="primary" type="submit">
+                        <button className={`btn btn-primary ${!disable? "disabled":""}`} variant="primary" type="submit">
                             Add to Order
                         </button>
                     </Form>

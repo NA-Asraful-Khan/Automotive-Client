@@ -15,8 +15,8 @@ const AddAProduct = () => {
         const minimumOrder = e.target.minimumOrder.value;
         const description = e.target.description.value;
         const picture = e.target.picture.value;
-        const name = user.displayName;
-        const email = user.email;
+        const name = user?.displayName;
+        const email = user?.email;
 
         const product = {productName,company,price,availableQuantity,minimumOrder,description,picture,name,email}
         console.log(product)
