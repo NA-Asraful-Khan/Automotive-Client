@@ -20,6 +20,7 @@ import AddAProduct from './Componant/Page/DashBoard/AddAProduct';
 import MakeAdmin from './Componant/Page/DashBoard/MakeAdmin';
 import ManageProducts from './Componant/Page/DashBoard/ManageProducts';
 import Purchase from './Componant/Page/Purchase';
+import Profileform from './Componant/Page/DashBoard/Profileform';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
 
         <Route path='/Login' element={<Login></Login>}></Route>
         <Route path='/Signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/profileform' element={<Profileform></Profileform>}></Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
