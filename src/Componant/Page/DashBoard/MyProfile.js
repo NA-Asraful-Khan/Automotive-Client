@@ -31,7 +31,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h2>This is my Profile</h2>
+            <h2>My Profile</h2>
             <div className="card w-6/12 bg-base-100 shadow-xl m-auto">
                 <figure><img className='w-6/12 m-6' src='https://cdn-icons-png.flaticon.com/512/74/74472.png' alt="Shoes" /></figure>
                 <div className="card-body">

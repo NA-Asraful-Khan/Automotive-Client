@@ -10,8 +10,6 @@ const Profileform = () => {
     const name = user?.displayName;
     const email = user?.email;
 
-    const navigate = useNavigate();
-
     const handleUpdate=e=>{
         e.preventDefault();
         const address = e.target.address.value
@@ -34,7 +32,6 @@ const Profileform = () => {
                 toast.success("Succesfully Updated Profile!")
             })
         e.target.reset()
-        navigate('/Dashboard');
     }
     return (
         <div>
