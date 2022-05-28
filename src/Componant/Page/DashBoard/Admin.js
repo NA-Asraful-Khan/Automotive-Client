@@ -16,7 +16,7 @@ const Admin = ({ item, index,refetch }) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td>{name}</td>
+            <td>{!name?"Unknown": name}</td>
             <td>{email}</td>
             <td>{role? role : "Viewr"}</td>
             <td>{role !== "Admin" && <button onClick={()=>makeAdmin()}  className='btn btn-sm btn-danger d-block'>Make Admin</button>}</td>

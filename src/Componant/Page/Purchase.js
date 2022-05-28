@@ -15,6 +15,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setItem(data));
     }, [])
+    const picture = item.picture
     const productName = item.productName;
     const company = item.company;
     const availableQuantity = parseInt(item.availableQuantity);
@@ -50,7 +51,8 @@ const Purchase = () => {
         const quantity = e.target.quantity.value;
         const mobile = e.target.mobile.value;
         const address = e.target.address.value;
-        const order = { name, email, productName, company, availableQuantity, minimumOrder, price, quantity,mobile,address}
+        const totalAmount = quantity * price;
+        const order = { name, email, productName, company, availableQuantity, minimumOrder, price, quantity,mobile,address,totalAmount,picture}
 
         fetch('http://localhost:5000/order', {
             method: 'POST',
@@ -84,12 +86,12 @@ const Purchase = () => {
                     <div className="divider m-1"></div>
                     <Form onSubmit={handlePurchase}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Address</Form.Label>
+                            <Form.Label><h5>Address</h5></Form.Label>
                             <Form.Control name='address' type="text" placeholder="Enter Your Adress" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Mobile</Form.Label>
+                            <Form.Label><h5>Mobile</h5></Form.Label>
                             <Form.Control name='mobile' type="number" placeholder="Give Us Your Mobile Number" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicQuantity">

@@ -9,12 +9,23 @@ const MyProfile = () => {
     const email = user?.email;
     const [data, setData] = useState({})
 
+    try {
+      } catch (error) {
+        console.log(error);
+      }
+      
+
     useEffect(() => {
-        fetch(`http://localhost:5000/update/${email}`)
+        try {
+            fetch(`http://localhost:5000/update/${email}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
             })
+        } catch (error) {
+          console.log(error);
+        }
+        
     }, [])
 
 
@@ -34,10 +45,11 @@ const MyProfile = () => {
                     <div className="divider m-1"></div>
                     <h2 className="card-title"><span className='text-muted'>Address:</span> {data.address}</h2>
                     <div className="divider m-1"></div>
-                    <h2 className="card-title"><span className='text-muted'>Linkedin:</span> {data.linkedin}</h2>
+                    <h2 className="card-title"><span className='text-muted'>Linkedin:</span><a href="https://www.linkedin.com/" target="_blank">{data.linkedin}</a></h2>
                     <div className="divider m-1"></div>
-                    <Link to='/profileform' className='btn btn-primary'>Update Profile</Link>
+                    <Link to='/profileform' className='btn btn-primary lh-lg'>Update Profile</Link>
                 </div>
+                <a href=""></a>
             </div>
         </div>
     );

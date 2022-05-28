@@ -16,7 +16,7 @@ const SignUp = () => {
     const [
         createUserWithEmailAndPassword,user,
         loading
-    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     const [token] = useToken(user);
 

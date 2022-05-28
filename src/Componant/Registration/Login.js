@@ -35,6 +35,10 @@ const Login = () => {
 
     }
 
+    if (error) {
+        toast.error(error?.message);
+    }
+
     if (token) {
         navigate(from);
     }

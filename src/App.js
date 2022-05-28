@@ -21,6 +21,7 @@ import MakeAdmin from './Componant/Page/DashBoard/MakeAdmin';
 import ManageProducts from './Componant/Page/DashBoard/ManageProducts';
 import Purchase from './Componant/Page/Purchase';
 import Profileform from './Componant/Page/DashBoard/Profileform';
+import Payment from './Componant/Page/DashBoard/Payment';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path='AddProduct' element={<AddAProduct></AddAProduct>}></Route>
           <Route path='MakeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
           <Route path='ManageProducts' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path='Payment/:id' element={<Payment></Payment>}></Route>
 
         </Route>
 

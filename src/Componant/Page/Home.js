@@ -17,7 +17,7 @@ const Home = () => {
             <Summary></Summary>
             <div className='p-8'>
                 <h1>Tools</h1>
-                <div className='grid grid-cols-3 m-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-4'>
                     {
                         items.slice(0, 6).map(item => <Tool
                             key={item._id}
