@@ -21,7 +21,7 @@ const Profileform = () => {
 
         const data = {address,mobile,education,linkedin,name,email}
 
-        fetch(`http://localhost:5000/update/${email}`,{
+        fetch(`https://cryptic-woodland-87675.herokuapp.com/update/${email}`,{
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

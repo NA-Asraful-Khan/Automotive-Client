@@ -8,7 +8,7 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const email = user?.email
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
+        fetch(`https://cryptic-woodland-87675.herokuapp.com/user/${email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data)

@@ -17,7 +17,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         try {
-            fetch(`http://localhost:5000/update/${email}`)
+            fetch(`https://cryptic-woodland-87675.herokuapp.com/update/${email}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);

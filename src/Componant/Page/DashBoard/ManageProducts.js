@@ -19,7 +19,7 @@ const ManageProducts = () => {
         setAgree(true);
         setModal(false);
         if (agree===true) {
-            const url = `http://localhost:5000/tool/${id}`;
+            const url = `https://cryptic-woodland-87675.herokuapp.com/tool/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

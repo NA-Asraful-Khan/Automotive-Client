@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const Admin = ({ item, index,refetch }) => {
     const { _id, name, email,role } = item
     const makeAdmin =()=>{
-        fetch(`http://localhost:5000/user/admin/${email}`,{
+        fetch(`https://cryptic-woodland-87675.herokuapp.com/user/admin/${email}`,{
             method: 'PUT',
         })
         .then(res =>res.json())

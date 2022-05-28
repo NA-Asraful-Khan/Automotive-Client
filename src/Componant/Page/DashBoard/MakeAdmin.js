@@ -4,7 +4,7 @@ import Loading from '../../SharePage/Loading';
 import Admin from './Admin';
 
 const MakeAdmin = () => {
-    const { data: person, isLoading,refetch } = useQuery('person', () => fetch(`http://localhost:5000/user`).then(res => res.json()))
+    const { data: person, isLoading,refetch } = useQuery('person', () => fetch(`https://cryptic-woodland-87675.herokuapp.com/user`).then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }

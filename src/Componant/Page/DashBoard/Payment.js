@@ -11,7 +11,7 @@ const Payment = () => {
     const { id } = useParams();
     const [payinfo, setPayInfo] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`)
+        fetch(`https://cryptic-woodland-87675.herokuapp.com/order/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPayInfo(data);

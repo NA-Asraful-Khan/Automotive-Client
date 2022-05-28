@@ -10,7 +10,7 @@ const CheckoutForm = ({payinfo}) => {
 
     const {totalAmount,name,email}= payinfo
     useEffect(() => {
-        fetch(`http://localhost:5000//create-payment-intent`, {
+        fetch(`https://cryptic-woodland-87675.herokuapp.com//create-payment-intent`, {
           method: "POST",
           headers: {
                "Content-Type": "application/json" ,

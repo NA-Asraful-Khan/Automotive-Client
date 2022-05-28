@@ -19,7 +19,7 @@ const AddReview = () => {
             const review = data.review;
             const ratings = data.ratings;
             const reviews = { email, name, review, ratings }
-            fetch('http://localhost:5000/review', {
+            fetch('https://cryptic-woodland-87675.herokuapp.com/review', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

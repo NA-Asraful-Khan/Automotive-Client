@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
     const [agree, setAgree] = useState(false);
     const [itemID, setItemID] = useState();
     useEffect(() => {
-        fetch(`http://localhost:5000/order`)
+        fetch(`https://cryptic-woodland-87675.herokuapp.com/order`)
             .then(res => res.json())
             .then(data => setOrder(data));
     }, [])
@@ -21,7 +21,7 @@ const ManageAllOrders = () => {
         setAgree(true);
         setModal(false);
         if (agree===true) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://cryptic-woodland-87675.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

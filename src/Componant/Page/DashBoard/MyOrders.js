@@ -10,7 +10,7 @@ const MyOrders = () => {
     const [itemID, setItemID] = useState();
     const [user] = useAuthState(auth);
     useEffect(() => {
-        fetch(`http://localhost:5000/order/admin?email=${user?.email}`)
+        fetch(`https://cryptic-woodland-87675.herokuapp.com/order/admin?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setmyOrder(data));
     }, [])
@@ -24,7 +24,7 @@ const MyOrders = () => {
         setAgree(true);
         setModal(false);
         if (agree===true) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://cryptic-woodland-87675.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

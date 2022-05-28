@@ -10,7 +10,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://cryptic-woodland-87675.herokuapp.com/tool/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
@@ -54,7 +54,7 @@ const Purchase = () => {
         const totalAmount = quantity * price;
         const order = { name, email, productName, company, availableQuantity, minimumOrder, price, quantity,mobile,address,totalAmount,picture}
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://cryptic-woodland-87675.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
