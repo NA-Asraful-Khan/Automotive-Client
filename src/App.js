@@ -23,6 +23,8 @@ import Purchase from './Componant/Page/Purchase';
 import Profileform from './Componant/Page/DashBoard/Profileform';
 import Payment from './Componant/Page/DashBoard/Payment';
 
+// text//////////////////////////////////////////////////////
+
 function App() {
   return (
     <div data-theme="light" className="App">
