@@ -17,7 +17,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         try {
-            fetch(`https://cryptic-woodland-87675.herokuapp.com/update/${email}`)
+            fetch(`https://automotive-server.vercel.app/update/${email}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);

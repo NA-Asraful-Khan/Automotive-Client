@@ -10,7 +10,6 @@ import Login from './Componant/Registration/Login';
 import RequiredAuth from './Componant/SharePage/RequiredAuth';
 import Home from './Componant/Page/Home';
 import Tools from './Componant/Page/Tools';
-import Blogs from './Componant/Page/Blogs';
 import Dashboard from './Componant/Page/Dashboard';
 import AddReview from './Componant/Page/DashBoard/AddReview';
 import MyOrders from './Componant/Page/DashBoard/MyOrders';
@@ -37,7 +36,6 @@ function App() {
             <Purchase></Purchase>
           </RequiredAuth>
         }></Route>
-        <Route path='/Blog' element={<Blogs></Blogs>}></Route>
         <Route path='/Portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/DashBoard' element={
           <RequiredAuth>

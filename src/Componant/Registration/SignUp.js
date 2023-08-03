@@ -23,20 +23,18 @@ const SignUp = () => {
 
     const handleSignup = async (event) => {
         event.preventDefault();
+        const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-
         if (password.length < 6) {
-            return toast.error("Password should be minimum 6 character");
+            return toast("Password should be minimum 6 character");
         }
-
         await createUserWithEmailAndPassword(email, password);
-        await updateProfile(displayName)
-        toast.success('Registration Succesfull')
-    }
+        await updateProfile({ displayName: name });
+        
+        navigate('/home');
 
-    if(token){
-        navigate('/');
+
     }
     if (updating) {
         return <Loading></Loading>
@@ -47,7 +45,7 @@ const SignUp = () => {
             <Form onSubmit={handleSignup}>
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control onChange={(e) => setDisplayName(e.target.value)} type="text" placeholder="Your Name" required />
+                    <Form.Control name="name" type="text" placeholder="Your Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

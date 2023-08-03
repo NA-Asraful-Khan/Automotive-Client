@@ -20,7 +20,7 @@ const AddAProduct = () => {
 
         const product = {productName,company,price,availableQuantity,minimumOrder,description,picture,name,email}
         console.log(product)
-        fetch('https://cryptic-woodland-87675.herokuapp.com/tool',{
+        fetch('https://automotive-server.vercel.app/tool',{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'

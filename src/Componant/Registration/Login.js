@@ -34,14 +34,14 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
 
     }
+    if (user) {
+        navigate(from);
+    }
 
     if (error) {
         toast.error(error?.message);
     }
 
-    if (token) {
-        navigate(from);
-    }
     return (
         <div className='w-50 mx-auto mt-5 py-5 d-block text-start'>
             <h2 className='text-center'>Log In</h2>

@@ -13,7 +13,7 @@ const SocialLogIn = () => {
     const google = () => {
         signInWithGoogle();
     }
-    if (token) {
+    if (user) {
         navigate(from);
     }
     return (

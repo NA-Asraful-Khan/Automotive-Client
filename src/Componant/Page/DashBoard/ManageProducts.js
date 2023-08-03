@@ -19,7 +19,7 @@ const ManageProducts = () => {
         setAgree(true);
         setModal(false);
         if (agree===true) {
-            const url = `https://cryptic-woodland-87675.herokuapp.com/tool/${id}`;
+            const url = `https://automotive-server.vercel.app/tool/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

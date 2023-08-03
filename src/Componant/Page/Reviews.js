@@ -15,7 +15,7 @@ import "swiper/css/autoplay";
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`https://cryptic-woodland-87675.herokuapp.com/review`)
+        fetch(`https://automotive-server.vercel.app/review`)
             .then(res => res.json())
             .then(data => setReviews(data.reverse()));
     }, [])

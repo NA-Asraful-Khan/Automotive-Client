@@ -19,7 +19,7 @@ const Profileform = () => {
 
         const data = {address,mobile,education,linkedin,name,email}
 
-        fetch(`https://cryptic-woodland-87675.herokuapp.com/update/${email}`,{
+        fetch(`https://automotive-server.vercel.app/update/${email}`,{
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

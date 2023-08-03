@@ -4,35 +4,38 @@ import ManageAllOrder from './ManageAllOrder';
 const ManageAllOrders = () => {
     const [order, setOrder] = useState([]);
     const [modal, setModal] = useState(false);
-    const [agree, setAgree] = useState(false);
+    const [agree, setAgree] = useState(true);
     const [itemID, setItemID] = useState();
     useEffect(() => {
-        fetch(`https://cryptic-woodland-87675.herokuapp.com/order`)
+        fetch(`https://automotive-server.vercel.app/order`)
             .then(res => res.json())
             .then(data => setOrder(data));
     }, [])
     const openModal =(id)=>{
         setModal(true);
         setItemID(id);
-        console.log(itemID)
+        console.log(id)
     }
 
     const handleOrderDelet = (id) => {
+        
         setAgree(true);
         setModal(false);
         if (agree===true) {
-            const url = `https://cryptic-woodland-87675.herokuapp.com/order/${id}`;
+            console.log(id)
+            const url = `https://automotive-server.vercel.app/order/${id}`;
             fetch(url, {
                 method: "DELETE"
-            })
-                .then(res => res.json())
-                .then(data => {
+            }).then(res => res.json())
+              .then(data => {
+                    console.log(data)
                     if (data.deletedCount > 0) {
                         const remaining = order.filter(item => item._id !== id);
                         setOrder(remaining);
                     }
                 })
         }
+        console.log(agree)
 
     }
     const closeModal = () => {
